@@ -5,11 +5,13 @@ const express = require('express'),
     Contact = require('./api/models/contactModel'),
     bodyParser = require('body-parser');
 
+const cors = require('cors');
+
 // mongoose instance connection url connection
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/contactListDb');
 
-
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
